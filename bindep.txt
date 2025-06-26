@@ -1,0 +1,13 @@
+which
+python3-pip
+git
+iputils
+iproute
+net-tools
+traceroute
+wget
+dnf-utils
+procps-ng
+strace
+lsof
+nmap-ncat

@@ -1,0 +1,7 @@
+paramiko
+ansible-core
+python3-pyOpenSSL
+jmespath 
+pyyaml
+httpie
+rich

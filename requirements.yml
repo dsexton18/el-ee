@@ -1,0 +1,17 @@
+---
+collections:
+  - name: ansible.posix
+  # - name: community.crypto
+  - name: community.general
+  - name: community.proxmox
+  - name: kubernetes.core
+  - name: theforeman.foreman
+  - name: containers.podman
+  - name: infra.aap_configuration
+  - name: infra.aap_configuration_extended
+  - name: infra.aap_utilities
+  - name: infra.controller_configuration
+  - name: infra.eda_configuration
+  - name: theforeman.operations
+  - name: freeipa.ansible_freeipa
+  - name: ansible.workshops
