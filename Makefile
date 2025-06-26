@@ -1,4 +1,5 @@
 .PHONY: build-alma build-rhel
+default: build-rhel
 
 build-alma:
 	ansible-builder build -f execution-environment.alma.yml -t ee-alma
