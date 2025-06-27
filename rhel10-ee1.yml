@@ -1,0 +1,21 @@
+version: 3
+
+images:
+  base_image:
+    name: registry.access.redhat.com/ubi10/ubi:latest
+
+ansible_config: ansible.cfg  # This line ensures your custom ansible.cfg is used
+
+dependencies:
+  galaxy: requirements.yml
+  python: requirements.txt
+  system: bindep.txt
+  ansible_runner:
+    package_pip: ansible-runner  # Install Ansible Runner using pip
+
+additional_build_steps:
+  prepend_base:
+    - RUN dnf install -y python3-pip git
+    - RUN pip3 install ansible-core
+  prepend_final:
+    - RUN echo "This is a custom message during the build."
