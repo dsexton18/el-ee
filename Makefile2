@@ -1,0 +1,21 @@
+EE_TAG ?= my-ee:latest
+EE_WORKDIR ?= /tmp/ansible-ee-build
+
+FILES = execution-environment.yml ansible.cfg requirements.yml requirements.txt bindep.txt
+
+.PHONY: build clean
+
+# Build the EE and clean up the context/dependency folders afterward
+build:
+	@echo "Creating temporary build directory: $(EE_WORKDIR)"
+	@mkdir -p $(EE_WORKDIR)
+	@cp $(FILES) $(EE_WORKDIR)
+	@echo "Building EE image: $(EE_TAG)"
+	@cd $(EE_WORKDIR) && ansible-builder build --tag $(EE_TAG) --workdir $(EE_WORKDIR) --no-cache
+	@echo "Cleaning up temporary directory: $(EE_WORKDIR)"
+	@rm -rf $(EE_WORKDIR)
+
+# Clean only the context and dependency directories if build was run in project root
+clean:
+	@echo "Removing local context and dependency folders..."
+	@rm -rf context dependency
